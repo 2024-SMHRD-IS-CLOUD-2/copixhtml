@@ -209,17 +209,37 @@
 
 		}
 		
-		$('#submitPost').on('click', function () {
-            // 파일 업로드 처리
-            let selectedFile = $('#fileInput')[0].files[0];
+		$(document).ready(function() {
+            // 게시물 작성 버튼 클릭 시
+            $('#submitPost').click(function() {
+                const postContent = $('#postContent').val();
+                const fileInput = $('#fileInput')[0];
 
-            // 게시물 내용 가져오기
-            let postContent = $('#postContent').val();
+                // 선택된 파일 정보 확인
+                const files = fileInput.files;
+                let mediaContent = '';
+                if (files.length > 0) {
+                    const file = files[0];
+                    const fileType = file.type.split('/')[0]; // image 또는 video
+                    const objectURL = URL.createObjectURL(file);
 
-            // 여기서 파일 업로드 및 게시물 작성에 대한 추가적인 로직을 수행할 수 있습니다.
-            // 이 예제에서는 콘솔에 파일 정보와 게시물 내용을 출력합니다.
-            console.log('Selected File:', selectedFile);
-            console.log('Post Content:', postContent);
+                    // 이미지 또는 영상을 포함한 HTML 코드 생성
+                    if (fileType === 'image') {
+                        mediaContent = `<img src="${objectURL}" alt="이미지" width="300">`;
+                    } else if (fileType === 'video') {
+                        mediaContent = `<video width="300" controls><source src="${objectURL}" type="${file.type}"></video>`;
+                    }
+                }
+
+                // 게시물 작성 및 화면에 표시
+                const postElement = $('<div>').addClass('post').html(`<p>${postContent}</p>${mediaContent}`);
+                $('#posts').prepend(postElement);
+
+                // 폼 초기화
+                $('#postContent').val('');
+                $('#fileInput').val('');
+            });
         });
+
 
 })(jQuery);

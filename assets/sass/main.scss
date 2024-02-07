@@ -152,7 +152,7 @@
 		font-size: 20pt;
 		line-height: 1.75em;
 
-		@include breakpoint('<=xlarge') {
+/* 		@include breakpoint('<=xlarge') {
 			font-size: 15pt;
 		}
 
@@ -166,7 +166,7 @@
 
 		@include breakpoint('<=xsmall') {
 			font-size: 11pt;
-		}
+		} */
 	}
 
 	strong, b, h1, h2, h3, h4, h5, h6 {
@@ -849,3 +849,6 @@
 			}
 		}
 	}
+
+
+	
