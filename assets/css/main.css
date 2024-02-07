@@ -1306,7 +1306,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("images/overlay.png"), url("images/knee-2253047.jpg");
+		background-image: url("images/overlay.png"), url("images/main_image.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1594,7 +1594,7 @@ input, select, textarea {
 		transition: background-color .25s ease-in-out;
 		-webkit-appearance: none;
 		display: inline-block;
-		background-color: #222222;
+		background-color: #4d4d4d;
 		color: #ffffff;
 		border: 0;
 		cursor: pointer;
@@ -1607,7 +1607,7 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #378bf8;
+			background-color: rgb(55, 173, 194);
 		}
 
 		input[type="button"]:active,
