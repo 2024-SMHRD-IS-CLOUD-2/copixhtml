@@ -2189,3 +2189,37 @@ input, select, textarea {
 			}
 
 		}
+		/* =============================================================== */
+		.btn-container {
+			text-align: center;
+		}
+		.btn-3d {
+			background-color: #616060;
+			position: relative;
+			display: inline-block;
+			font-size: 22px;
+			padding: 15px 60px;
+			color: white;
+			margin: 20px 10px 10px;
+			box-shadow: 0 20px 30px 0;
+			border-radius: 6px;
+			text-align: center;
+			transition: top .01s linear;
+			text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+			text-decoration: none;
+		  }
+		  .btn-3d.cyan:hover   {background-color: #82D1E3;}
+		  
+		  .btn-3d:active {
+			top: 9px;
+		  }
+		  .col-6 {
+			text-align: center;
+			margin: auto;
+			padding-left: 6%;
+		  }
+		  .col-3 {
+			text-align: center;
+			margin: auto;
+		  }
+		

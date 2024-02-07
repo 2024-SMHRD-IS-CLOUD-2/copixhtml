@@ -14,7 +14,8 @@
 		box-sizing: border-box;
 		margin-top: 10px;
 	}
-	#signup-form>input{
+
+	#signup-form>input {
 		width: 100%;
 		align-content: center;
 		height: 70px;
@@ -58,18 +59,22 @@
 			<!-- 로그인 -->
 			<article id="login" class="panel intro">
 				<header>
-					<h2 style="text-align: center; font-size: 40px;">로그인</h2>
 					<form action="#" method="post" id="login-form">
-						<input type="text" name="id" placeholder="Id"
+						<br>
+						<h2 style="text-align: center; font-size: 45px; font-weight: 500;">로그인</h2>
+						<h6 style="text-align: center; font-size: 20px;">or use your email for registration</h6>
+						<input type="text" name="id" placeholder="Email"
 							style="text-align: left; font-size: 25px; color:#424040; font-weight:300;" />
-						<td></td>
-
-						<td><input type="text" name="pw" placeholder="Password"
-								style="text-align: left; font-size: 25px; color:#424040;" /></td>
-						<input type="submit" value="Log in"
-							style="text-align: center; font-size: 25px; color:#fff;">
-						<input type="submit" value="Sign up"
-							style="text-align: center; font-size: 25px; color:#fff;">
+						<input type="text" name="pw" placeholder="Password"
+								style="text-align: left; font-size: 25px; color:#424040;" />
+						<!-- <input type="submit" value="Log in" style="text-align: center; font-size: 25px; color:#fff;"> -->
+						<div class="btn-container">
+							<a href="#" style="text-align: center; font-size: 25px;">Forgot your password?</a>
+							<br>
+							<a href="#" class="btn-3d cyan">Login</a>
+							<a href="#" class="btn-3d cyan">Sign up</a>
+						</div>
+						<!-- <input type="submit" value="Sign up" style="text-align: center; font-size: 25px; color:#fff;"> -->
 					</form>
 
 				</header>
@@ -84,31 +89,47 @@
 			<!-- 회원가입 -->
 			<article id="signup" class="panel">
 				<header>
-					<h2 style="text-align: center;">Sign up</h2>
+					<h2 style="text-align: center; font-weight: 500;">회원가입</h2>
 				</header>
 				<form action="#" method="post" id="signup-form">
 					<div>
 						<div class="row">
-
-							<div class="col-6" style="margin: auto; padding-left: 6%;">
-								<input type="text" name="id" placeholder="Id" />
+							<!-- 회원 이메일 -->
+							<div class="col-6">
+								<a href="#">Email</a>
+								<input type="text" name="id" placeholder="Email" />
 							</div>
 							<div></div>
-							<div class="col-6" style="margin: auto; padding-left: 6%;">
+							<!-- 회원 닉네임 -->
+							<div class="col-6">
+								<input type="text" name="nick" placeholder="Nick_name" />
+							</div>
+							<div></div>
+							<!-- 회원 성별 -->
+							<div class="col-6">
+								<input type="text" name="gender" placeholder="Gender"/>
+							</div>
+							<div></div>
+							<!-- 회원 생년월일 -->
+							<div class="col-6">
+								<input type="text" name="birth"/>
+							</div>
+							<div></div>
+							<!-- 회원 비밀번호 -->
+							<div class="col-6">
 								<input type="text" name="pw" placeholder="Password" />
 							</div>
 							<div></div>
-							<div class="col-6" style="margin: auto; padding-left: 6%;">
-								<input type="text" name="pwcheck" placeholder="Password check" />
+							<!-- 회원 비밀번호 확인 -->
+							<div class="col-6">
+								<input type="text" name="pwcheck" placeholder="Password Check" />
+								<!-- 회원가입 버튼 -->
+								<a href="#" class="btn-3d cyan">회원가입</a>
 							</div>
 							<div></div>
-							<div class="col-6" style="margin: auto; padding-left: 6%;">
-								<input type="text" name="email" placeholder="E-mail" />
-							</div>
-							<div></div>
-							<div id="signup-form" class="col-6" style="margin: auto; text-align: center;">
+							<!-- <div id="signup-form" class="col-6" style="margin: auto; text-align: center;">
 								<input type="submit" value="회원가입" />
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</form>
@@ -122,17 +143,11 @@
 
 
 			<!-- 업로드 -->
-<<<<<<< HEAD
-			<article id="upload" class="panel" style="text-align: left;">
-				<div class="col-4 col-6-medium col-12-small">
-					<input type="file" id="fileInput" accept="image/*, video/*"><br>
-=======
 			<article id="upload" class="panel">
 				<header>
 					<h2>업로드</h2>
 				</header>
 				<div id="postForm">
->>>>>>> 09eedabedda3d7c3404f3ec9904f83e6d5d9171f
 					<textarea id="postContent" placeholder="게시물 내용을 입력하세요"></textarea><br>
 					<input type="file" id="fileInput" accept="image/*, video/*"><br>
 					<button id="submitPost">게시물 작성</button>
@@ -143,9 +158,8 @@
 			<article id="posting" class="panel">
 				<div id="posts"></div>
 				<!-- 여기에 피드 아이템이 추가됩니다. -->
-		</article>
+			</article>
 
-<<<<<<< HEAD
 			<!-- 질환정보 -->
 			<article id="sick_info" class="panel">
 				<header>
@@ -243,60 +257,10 @@
 						<div class="col-4 col-6-medium col-12-small">
 							<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
 						</div>
-=======
+					</div>
+				</section>
+			</article>
 
-		<!-- Work -->
-		<article id="work" class="panel">
-			<header>
-				<h2>Work</h2>
-			</header>
-			<p>
-
-			</p>
-			<section>
-				<div class="row">
-					<div class="col-4 col-6-medium col-12-small">
-						<a id="img1" href="https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31866" class="image fit"><img src="images/거북목.jpg" alt=""><span class="ache">거북목</span></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
->>>>>>> 09eedabedda3d7c3404f3ec9904f83e6d5d9171f
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-					</div>
-				</div>
-			</section>
-		</article>
-
-<<<<<<< HEAD
 			<!-- 마이페이지 -->
 			<article id="mypage" class="panel">
 				<header style="text-align: center;">
@@ -304,182 +268,37 @@
 					<br>
 					<img id="profilePicture" src="/images/프로필사진.jpg" alt="프로필 사진" width="200" height="200" ">
 					
-					<div class="mypage">
-						<button accept="image/*" style="width: 200px; font-size: 18px;">프로필 사진 변경</button>
-					</div>
-					<br>
-					<form action="#" method="post" id="signup-form">
-						<div>
-							<div class="row">
-								<div class="col-6" style="margin: auto; padding-left: 6.5%;">
-									<input type="text" name="id" placeholder="Id" />
-								</div>
-								<div></div>
-								<div class="col-6" style="margin: auto; padding-left: 6.5%;">
-									<input type="text" name="pw" placeholder="현재비밀번호" />
-								</div>
-								<div></div>
-								<div class="col-6" style="margin: auto; padding-left: 6.5%;">
-									<input type="text" name="pwcheck" placeholder="변경할비밀번호" />
-								</div>
-								<div></div>
-								<div class="col-6" style="margin: auto;" id="signup-form">
-									<input type="submit" value=" 회원정보 수정" style="width: auto;"/>
-								</div>
-							</div>
-						</div>
-					</form>
-				</header>
-					
-			</article>
-
-
+					<div class=" mypage">
+					<button accept="image/*" style="width: 200px; font-size: 18px;">프로필 사진 변경</button>
 		</div>
-=======
-		<!-- 질병정보 -->
-		<article id="sick_info" class="panel">
-			<header>
-				<h2>질병정보</h2>
-			</header>
-			<p>
-				다양한 상체 질환들의 정보를 제공하는 페이지입니다.
-			</p>
-			<section>
+		<br>
+		<form action="#" method="post" id="signup-form">
+			<div>
 				<div class="row">
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31866"
-							class="image fit"><img src="images/거북목.jpg" alt=""></a>
+					<div class="col-6" style="margin: auto; padding-left: 6.5%;">
+						<input type="text" name="id" placeholder="Id" />
 					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+					<div></div>
+					<div class="col-6" style="margin: auto; padding-left: 6.5%;">
+						<input type="text" name="pw" placeholder="현재비밀번호" />
 					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
+					<div></div>
+					<div class="col-6" style="margin: auto; padding-left: 6.5%;">
+						<input type="text" name="pwcheck" placeholder="변경할비밀번호" />
 					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
+					<div></div>
+					<div class="col-6" style="margin: auto;" id="signup-form">
+						<input type="submit" value=" 회원정보 수정" style="width: auto;" />
 					</div>
 				</div>
-			</section>
+			</div>
+		</form>
+		</header>
+
 		</article>
 
-		<!-- 운동정보 -->
-		<article id="exercise_info" class="panel">
-			<header>
-				<h2>질병정보</h2>
-			</header>
-			<p>
-				다양한 상체 질환들의 정보를 제공하는 페이지입니다.
-			</p>
-			<section>
-				<div class="row">
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31703"
-							class="image fit"><img src="images/오십견.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-					</div>
-				</div>
-			</section>
-		</article>
-
-		<!-- 마이페이지 -->
-		<article id="mypage" class="panel">
-			<header>
-				<div>
-					<h2>프로필 사진</h2>
-				</div>
-				<div>
-					<img id="profilePicture" src="/html5up-astral/images/1번.png" alt="프로필 사진" width="150">
-				</div>
-				<div>
-					<button id="changePictureBtn">프로필 사진 변경</button>
-				</div>
-				<div>
-					<input type="file" id="fileInput2" style="display: none">
-				</div>
-			</header>
-			<section>
-				<form action="#" method="post">
-					<div>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<input type="text" name="I_D" placeholder="ID" />
-							</div>
-							<div class="col-6 col-12-medium">
-								<input type="password" name="password" placeholder="현재비밀번호" />
-							</div>
-							<div class="col-12">
-								<input type="password" name="convert_password" placeholder="변경할비밀번호" />
-							</div>
-							<div class="col-12">
-							</div>
-							<div class="col-12">
-								<input type="submit" value="회원정보변경" />
-							</div>
-						</div>
-					</div>
-				</form>
-			</section>
-		</article>
 
 	</div>
->>>>>>> 09eedabedda3d7c3404f3ec9904f83e6d5d9171f
 
 	<!-- Footer -->
 	<div id="footer">
