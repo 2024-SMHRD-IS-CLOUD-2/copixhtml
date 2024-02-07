@@ -144,20 +144,24 @@
 
 			<!-- 업로드 -->
 			<article id="upload" class="panel">
-				<header>
-					<h2>업로드</h2>
-				</header>
-				<div id="postForm">
-					<textarea id="postContent" placeholder="게시물 내용을 입력하세요"></textarea><br>
-					<input type="file" id="fileInput" accept="image/*, video/*"><br>
-					<button id="submitPost">게시물 작성</button>
+				<form id="post-form" enctype="multipart/form-data">
+					<input type="file" id="file-upload" name="file" accept="image/*"><br>
+					<textarea id="caption" placeholder="사진에 대한 설명을 입력하세요..." rows="4" cols="50"></textarea><br>
+					<button type="submit" id="post-upload">게시</button>
+				</form>
+				
+				<!-- 업로드한 이미지와 게시글 출력 영역 -->
+				<div id="post-container">
+					<h2>게시된 내용</h2>
+					<ul id="post-list">
+					</ul>
 				</div>
+				
+				
 			</article>
 
 			<!-- 게시물 -->
 			<article id="posting" class="panel">
-				<div id="posts"></div>
-				<!-- 여기에 피드 아이템이 추가됩니다. -->
 			</article>
 
 			<!-- 질환정보 -->

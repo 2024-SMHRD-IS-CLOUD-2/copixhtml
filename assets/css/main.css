@@ -2222,4 +2222,36 @@ input, select, textarea {
 			text-align: center;
 			margin: auto;
 		  }
+
+		  /*  */
+		  #post-container {
+			text-align: center;
+		}
+		
+		.post-item {
+			display: inline-block;
+			margin: 20px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+		
+		.post-item img {
+			width: 400px;
+			height: 400px;
+		}
+		
+		.comment-section {
+			text-align: center;
+		}
+		
+		.comment-input {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		
+		.comments-list {
+			list-style: none;
+			padding: 0;
+		}
 		
