@@ -131,33 +131,51 @@
 
 			</article>
 
-			<!-- 질환테스트 -->
+			<!-- 설문조사 -->
 			<article id="test" class="panel">
-				<div id="posts"></div>
+			
+				<a href="#test-excute" class="jumplink pic">
+					<span class="arrow icon solid fa-chevron-right">설문조사</span>
+					<img src="" alt="" />
+				</a>
+			</article>
+			
+			<!-- 검사진행 -->
+			<article id="test-excute" class="panel">
+				<a href="#test-result" class="jumplink pic">
+					<span class="arrow icon solid fa-chevron-right">검사진행</span>
+					<img src="" alt="" />
+				</a>
+			</article>
+			
+			<!-- 검사결과 -->
+			<article id="test-result" class="panel">
+				<span>검사결과</span><br>
+				<button>검사결과저장</button><br>
+				<a class="icon solid fa-user-md" href="#test">  <button>NewTest </button></a>
 			</article>
 
 
 			<!-- 업로드 -->
 			<article id="upload" class="panel">
-				<form id="post-form" enctype="multipart/form-data">
-					<input type="file" id="file-upload" name="file" accept="image/*"><br>
-					<textarea id="caption" placeholder="사진에 대한 설명을 입력하세요..." rows="4" cols="50"></textarea><br>
-					<button type="submit" id="post-upload">게시</button>
+				<h2>CopixGram</h2>
+				
+				<form id="post-form">
+					<input type="file" id="file-upload" accept="image/*"><br>
+					<input type="text" id="caption" placeholder="게시물 내용을 입력하세요"><br>
+					<button type="submit">업로드</button>
 				</form>
-
-				<!-- 업로드한 이미지와 게시글 출력 영역 -->
-				<div id="post-container">
-					<h2>게시된 내용</h2>
-					<ul id="post-list">
-					</ul>
-				</div>
-
-
+				
+				<h2>게시물 목록</h2>
+				<ul id="post-list">
+					<!-- 여기에 업로드된 게시물이 추가됩니다. -->
+				</ul>
+				
+				
 			</article>
-
 			<!-- 게시물 -->
 			<article id="posting" class="panel">
-			</article>
+		</article>
 
 			<!-- 질환정보 -->
 			<article id="sick_info" class="panel">

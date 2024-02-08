@@ -218,6 +218,9 @@
 			// 게시물 카운터
 			var postCount = 0;
 		
+			// 좋아요 카운트를 저장하기 위한 객체
+			var likeCounts = {};
+		
 			// 폼 제출 시
 			$('#post-form').on('submit', function(event) {
 				event.preventDefault(); // 기본 동작 방지
@@ -242,15 +245,13 @@
 				reader.onload = function(event) {
 					var imageUrl = event.target.result; // 이미지 URL 가져오기
 					var postId = 'post_' + postCount++; // 고유한 게시물 ID 생성
-
-				
 		
 					// 업로드한 이미지와 게시글, 댓글 입력 폼 및 댓글 목록을 출력
 					var postItem = '<li class="post-item" id="' + postId + '">';
 					postItem += '<img src="' + imageUrl + '" style="max-width: 200px;"><br>';
 					postItem += '<div class="comment-section">';
 					postItem += '<textarea class="comment-input" placeholder="댓글을 입력하세요..." rows="2" cols="50"></textarea><br>';
-					postItem += '<button class="like-btn" data-caption="' + caption + '">좋아요</button> ';
+					postItem += '<button class="like-btn" data-caption="' + caption + '" data-liked="false">좋아요</button> ';
 					postItem += '<span class="like-count">0</span>';
 					postItem += '<button class="comment-submit" type="button">댓글 작성</button>';
 					postItem += '<ul class="comments-list"></ul>'; // 댓글 목록
@@ -258,61 +259,53 @@
 		
 					// 게시물 목록에 게시물 추가
 					$('#post-list').append(postItem);
-
- // 좋아요 카운트를 저장하기 위한 객체
- var likeCounts = {};
-
-					// 좋아요 카운트 초기화
-					likeCounts[caption] = 0;
-
-					$(document).on('click', '.like-btn', function() {
-						var caption = $(this).data('caption');
-						var $likeCount = $(this).siblings('.like-count');
-				
-						// 이미 좋아요를 눌렀는지 확인
-						var isLiked = $(this).hasClass('liked');
-				
-						if (!isLiked) {
-							// 좋아요 카운트 증가
-							likeCounts[caption]++;
-							// 좋아요 카운트 업데이트
-							$likeCount.text(likeCounts[caption]);
-							// 좋아요 버튼을 눌렀음을 표시
-							$(this).addClass('liked').text('좋아요 취소');
-						} else {
-							// 좋아요 취소
-							likeCounts[caption]--;
-							// 좋아요 카운트 업데이트
-							$likeCount.text(likeCounts[caption]);
-							// 좋아요 버튼을 다시 활성화
-							$(this).removeClass('liked').text('좋아요');
-						}
-					});
 		
-					// 댓글 작성 버튼 클릭 시
-					$('#' + postId).find('.comment-submit').on('click', function() {
-						var $commentInput = $(this).siblings('.comment-input');
-						var comment = $commentInput.val().trim();
-						if (comment !== '') {
-							var $commentsList = $(this).siblings('.comments-list');
-							var $newComment = $('<li>').text(comment);
-							$commentsList.append($newComment);
-							$commentInput.val('');
-						}
+					// 좋아요 카운트 초기화
+					likeCounts[postId] = 0;
+
 					
-					});
-
-					$('#file-upload').val('');
-					$('#caption').val('');
-
+          		  // 입력란 초기화
+          		 	 $('#file-upload').val('');
+          	 		 $('#caption').val('');
 				};
-
-
 		
 				// 파일을 읽기
 				reader.readAsDataURL(file);
 			}
+		
+			// 좋아요 버튼 클릭 이벤트
+			$(document).on('click', '.like-btn', function() {
+				var postId = $(this).closest('.post-item').attr('id');
+				var $likeCount = $(this).siblings('.like-count');
+				var isLiked = $(this).data('liked') === 'true';
+		
+				if (!isLiked) {
+					likeCounts[postId]++;
+					$likeCount.text(likeCounts[postId]);
+					$(this).data('liked', 'true').text('좋아요 취소');
+				} else {
+					likeCounts[postId]--;
+					$likeCount.text(likeCounts[postId]);
+					$(this).data('liked', 'false').text('좋아요');
+				}
+			});
+		
+			// 댓글 작성 버튼 클릭 시
+			$(document).on('click', '.comment-submit', function() {
+				var $commentInput = $(this).siblings('.comment-input');
+				var comment = $commentInput.val().trim();
+				if (comment !== '') {
+					var $commentsList = $(this).siblings('.comments-list');
+					var $newComment = $('<li>').text(comment);
+					$commentsList.append($newComment);
+					$commentInput.val('');
+				}
+
+				$('#file-upload').val('');
+				$('#caption').val('');
+			});
 		});
 		
+
 
 })(jQuery);
