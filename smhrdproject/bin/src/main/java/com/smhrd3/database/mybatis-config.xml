@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 1. xml에서 어떤 태그를 사용할 것인지 schema 기술해줘야함 -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- 'mybatis 설정 파일이다'를 알려주는 태그 -->
+  <!-- dtd : document type definition -->
+<configuration>
+<!-- 해당 프로젝트에서 사용하는 DB 연결과 설정파일 전부 지정하는 공간 -->
+
+  <environments default="development">
+  <!-- environments : database가 여러개 사용 될 수 있다. DB에 대한 정보들을 기술할 수 있는 공간 -->
+    <environment id="development">
+    <!-- environment : DB 한개에 대한 정보를 기술하는 공간 -->
+      <transactionManager type="JDBC"/>
+      <!-- transactionManager : 트랜잭션 관리, Connection pool 관리
+      					type  : JDBC(commit, rollback 기능들을 mybatis 자체에서 관리)
+      							MANAGED(트랜잭션을 전체적으로 server측에서 관리) -->
+      <!-- Connection pool이란? : connection 이라는 객체를 생성하는데에 굉장히 많은 자원이 소비됨
+      							 connection 객체를 미리 3~5개 정도 생성을 하고 pool이라는 공간에서 관리 -->
+      <dataSource type="POOLED">
+      <!-- dataSource : DB연결(Connection 객체) 설정
+      			 type : POOLED => 미리 Connection 객체를 생성하고 요청시에 빌려줌
+      			 		UNPOOLED => 요청이 들어올 때 마다 Connection객체를 생성  	
+       -->
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@project-db-cgi.smhrd.com:1524:xe"/>
+        <property name="username" value="cgi_23IS_CLOUD2_p2_3"/>
+        <property name="password" value="smhrd3"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  
+  
+  <mappers>
+  <!-- mapper파일 만들고 꼭 수정하기! -->
+    <mapper resource="com/smhrd3/database/MemberMapper.xml"/>
+  </mappers>
+  
+  
+  
+</configuration>
