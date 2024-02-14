@@ -305,7 +305,80 @@
 				$('#caption').val('');
 			});
 		});
-		
 
+/////////////////////////////////////////////////////
+
+// testResultBtn에 클릭 이벤트 리스너 추가
+document.getElementById('testResultBtn').addEventListener('click', function() {
+    // 여기에 Mediapipe를 통해 얻은 문자 결과값을 가져오는 Python 코드를 실행하여, 결과를 result 변수에 할당합니다.
+    var result = "Python Mediapipe로부터 얻은 결과입니다."; // 임시 문자열, 실제로는 Python으로부터 얻은 값으로 대체되어야 합니다.
+    
+    // 결과를 화면에 출력
+    document.getElementById('resultArea').innerText = result;
+
+    // 새로운 버튼 영역을 표시
+    document.getElementById('newTestButtons').style.display = 'block';
+});
+
+// NewTest 버튼에 클릭 이벤트 리스너 추가
+document.getElementById('newTestBtn').addEventListener('click', function() {
+});
+
+// Test 결과 보러가기 버튼에 클릭 이벤트 리스너 추가
+document.getElementById('goToTestResultBtn').addEventListener('click', function() {
+});
+
+$(document).ready(function() {
+	$('#changeProfileBtn').click(function() {
+		$('#profilePicInput').click();
+	});
+
+	$('#profilePicInput').change(function() {
+		var file = this.files[0];
+		if (file) {
+			var reader = new FileReader();
+			reader.onload = function(event) {
+				$('#profilePicture').attr('src', event.target.result);
+			};
+			reader.readAsDataURL(file);
+		}
+	});
+});
+
+
+// 프로필사진 변경
+
+$(document).ready(function() {
+	// 프로필 사진 변경 버튼 클릭 시
+	$("button").click(function() {
+	  // 파일 선택을 위한 input 태그 생성
+	  var input = $("<input>").attr("type", "file").change(function() {
+		// 파일이 선택되었을 때 실행되는 함수
+		var file = this.files[0]; // 선택된 파일 가져오기
+		var filePath = URL.createObjectURL(file); // 파일 경로 가져오기
+		var reader = new FileReader();
+		reader.onload = function(e) {
+		  // 파일을 읽어서 이미지 변경
+		  $("#profilePicture").attr("src", e.target.result);
+		}
+		reader.readAsDataURL(file); // 파일을 data URL로 읽기
+	  });
+	  input.trigger("click"); // input 태그 클릭 이벤트 발생시키기
+	    // Java로 파일 경로 전송
+		$.ajax({
+			type: "POST",
+			url: "/your-java-endpoint",
+			data: { filePath: filePath },
+			success: function(response) {
+			  // 성공적으로 처리된 후의 동작
+			  console.log("파일 경로 전송 완료");
+			},
+			error: function(xhr, status, error) {
+			  // 오류 처리
+			  console.log("파일 경로 전송 실패");
+			}
+		  });
+	});
+  });
 
 })(jQuery);
