@@ -333,7 +333,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 2em;
 }
 
 h3 {
@@ -2179,7 +2179,9 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 select {
-	height: 2.75em;
+	height: 2.5em;
+	/* 로그인, 회원가입 input 높이 */
+	width: 100%;
 }
 
 textarea {
@@ -2299,7 +2301,6 @@ select {
 
 select option {
 	color: #ffffff;
-	background: #935d8c;
 }
 
 input[type="checkbox"]+label,
@@ -2784,7 +2785,7 @@ header.major h2:after {
 	content: '';
 	width: 3.25em;
 	height: 2px;
-	margin: 0.7em 0 1em 0;
+	margin: 1em 0 1em 0;
 	border-radius: 2px;
 }
 
@@ -2842,6 +2843,11 @@ header.major h2:after {
 }
 
 /* Table */
+
+/* 테스트 체크박스 위치 */
+table[type="test"] {
+	text-align: left;
+}
 
 .table-wrapper {
 	-webkit-overflow-scrolling: touch;
@@ -3211,6 +3217,7 @@ table.alt tbody tr td {
 	border-color: rgba(255, 255, 255, 0.35);
 }
 
+
 /* Header */
 
 #header {
@@ -3370,6 +3377,34 @@ body.is-preload #header.alt .logo {
 	border-top-right-radius: 0.25em;
 	cursor: default;
 	text-align: center;
+}
+
+#nav2 {
+	-moz-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+	-webkit-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+	-ms-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+	transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+	background-color: #ffffff;
+	color: #ffffff;
+	/* 피드 상단바 폰트*/
+	position: absolute;
+	width: 64em;
+	max-width: calc(100% - 4em);
+	padding: 1em;
+	background-color: rgba(39, 40, 51, 0.965);
+	/* 피드 상단바 컬러*/
+	border-top-left-radius: 0.25em;
+	border-top-right-radius: 0.25em;
+	cursor: default;
+	text-align: center;
+	height: 2em;
+	padding-bottom: 4em;
+	padding-right: 2.5em;
+}
+
+#nav2 ul {
+	list-style-type: none;
+	/* 목록 기호 제거 */
 }
 
 #nav input,
@@ -3981,6 +4016,11 @@ ul#post-list li img {
 	/* 가로 여백을 자동으로 조정하여 가운데 정렬 */
 }
 
+#comment-form {
+    /* 댓글 입력 폼 스타일 */
+    margin-top: 50px; /* 댓글 입력 폼과 댓글 목록 간의 여백 조절 */
+}
+
 
 .post-item {
 	border: 1px solid #ccc;
@@ -4033,7 +4073,7 @@ ul#post-list li img {
 
 .comment-submit {
 	/* 댓글 작성 버튼을 맨 오른쪽으로 이동 */
-	margin-left: 290px;
+	margin-left: 615px;
 }
 
 .comments-list li {
@@ -4042,9 +4082,10 @@ ul#post-list li img {
 	padding-bottom: 5px;
 }
 
+/* 업로드 댓글 조절 */
 .comment-input {
-	width: 558px;
-	height: 50px;
+	width: 885px;
+	height: 70px;
 	resize: none;
 	max-block-size: 100%;
 	box-sizing: border-box;
@@ -4135,6 +4176,7 @@ ul#post-list li img {
 	margin: 0 0 0em 0;
 	padding-top: 0.8em;
 }
+
 #banner .content h3 {
 	color: #fff;
 	font-size: 2em;
@@ -4189,36 +4231,385 @@ ul#post-list li img {
 	cursor: default;
 	height: 3.6em;
 	left: 0;
-	line-height: 3.5em;
+	line-height: 2em;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 100;
 }
 
+#header1 #nav1 {
+	position: absolute;
+	right: 0.1em;
+	top: 0;
+	height: 100%;
+	/* 부모 요소의 높이를 100%로 설정 */
+	display: flex;
+	align-items: center;
+	/* 세로 중앙 정렬 */
+}
+
 #header1 #nav1 ul {
-    margin: 0;
-    padding-right: 30px;
-    list-style: none; /* 리스트 아이템의 점 모양 제거 */
-    display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
+	margin: 0.8em;
+	padding-right: 20px;
+	list-style: none;
+	/* 리스트 아이템의 점 모양 제거 */
+	display: flex;
+	justify-content: flex-end;
+	/* 오른쪽 정렬 */
+	font-size: 25px;
 }
 
 #header1 #nav1 ul li {
-    margin-left: 1em;
+	margin-right: 1em;
 }
 
-/* #header1 #nav1 ul li a {
-    border: 0;
-    color: inherit;
-    height: inherit;
-    line-height: inherit;
-    outline: 0;
-    text-decoration: none;
-} */
+#header1 #nav1 ul li a {
+	border: 0;
+	text-decoration: none;
+	/* 밑줄 제거 */
+}
 
-#header1 #nav1 ul li a.button {
-    height: 1.7em;
-    line-height: 1.5em;
-    /* 다른 스타일 속성들... */
+
+/* =============================================================== */
+.btn-container {
+	text-align: center;
+}
+
+.btn-3d {
+	background-color: #616060;
+	position: relative;
+	display: inline-block;
+	font-size: 25px;
+	width: 150px;
+	height: 1.8em;
+	color: white;
+	border-radius: 6px;
+	text-align: center;
+	transition: top .01s linear;
+	text-decoration: none;
+}
+
+
+.btn2-3d {
+	background-color: #616060;
+	position: relative;
+	display: inline-block;
+	font-size: 40px;
+	width: 200px;
+	height: 1.8em;
+	color: white;
+	border-radius: 6px;
+	text-align: center;
+	transition: top .01s linear;
+	text-decoration: none;
+}
+
+.btn3-3d {
+	background-color: #616060;
+	position: relative;
+	display: inline-block;
+	font-size: 40px;
+	width: 400px;
+	height:2em;
+	padding-top: 0.2em;
+	color: white;
+	border-radius: 6px;
+	text-align: center;
+	transition: top .01s linear;
+	text-decoration: none;
+}
+
+.btn-3d.cyan:hover {
+	background-color: #82D1E3;
+}
+
+
+/* Intro */
+
+#intro1 .inner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#intro1 .actions a.button {
+	height: 70px;
+	padding: 8px;
+}
+
+/* 테스트페이지 상단바와 텍스트 사이 간격 조절 */
+.spotlight2 header.major2 h2 {
+	margin-top: 0px;
+
+}
+
+/* 선택 버튼 왼쪽에 점모양 삭제 */
+li {
+	list-style-type: none;
+}
+
+
+
+/* 도넛그래프 */
+.pie-chart {
+	position: relative;
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	transition: 0.3s;
+	/* 도넛색상 변경은 js에서 */
+}
+
+span.center {
+	background: #fff;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 150px;
+	font-size: 40px;
+	transform: translate(-50%, -50%);
+}
+
+
+
+/* 설문테스트 도넛차트 위치 조절 */
+#myresult .pie-chart1 {
+	display: flex;
+	margin-left: 150px;
+	width: 300px;
+	height: 300px;
+}
+
+
+a[type="turtle-title"] {
+	font-size: 30px;
+	margin-left: 11.8em; /*그래프 이름 타이틀*/
+	padding-top: 1em;
+	border-bottom: none;
+	/* 텍스트 아래의 점선 제거 */
+}
+
+
+/* 이미지테스트 도넛차트 */
+#myresult1 .pie-chart1 {
+	display: flex;
+	width: 300px;
+	height: 300px;
+}
+
+#myresult1 .chart-title {
+	all: initial;
+	display: flex;
+	margin-left: 240px;
+	margin-top: 20px;
+	font-size: 40px;
+	color: rgb(50, 46, 54);
+	text-decoration: none !important;
+}
+
+/* 회원가입 input태그 */
+input[type="text"] {
+	font-size: 40px;
+	margin-bottom: 1em;
+}
+
+select[type="gender"] {
+	width: 100%;
+	font-size: 40px;
+}
+
+
+input[type="birth"] {
+	width: 45%;
+}
+
+
+h2[type=login] {
+	text-align: center;
+	font-size: 70px;
+	font-weight: 500;
+}
+
+h6[type=login] {
+	text-align: center;
+	font-size: 45px;
+}
+
+a[type=login] {
+	font-size: 30px;
+}
+
+h2[type=signup] {
+	text-align: center;
+	font-size: 70px;
+	font-weight: 500;
+}
+
+h6[type=signup] {
+	text-align: center;
+	font-size: 45px;
+}
+
+a[type=signup] {
+	font-size: 30px;
+}
+
+
+/* 회원가입 날짜 */
+input[type="date"] {
+	position: relative;
+	width: 100%;
+	height: 2.5em;
+	line-height: 2.5em;
+	padding: 0 42px 0 16px;
+	padding-right: 42px;
+	background: url(/assets/css/images/icons8-달력을-찢어-64.png) no-repeat right 12px center / 55px auto;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color: rgba(222, 222, 222, 0.2);
+	font-size: 40px;
+}
+
+input[type="date"]::-webkit-clear-button,
+input[type="date"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	color: transparent;
+	cursor: pointer;
+}
+
+input[type="date"]::before {
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+input[type="date"]:valid::before {
+	display: none;
+}
+
+input[data-placeholder]::before {
+	color: #ddd;
+	font-size: 40px;
+	text-align: left;
+	padding-right: 10%;
+}
+
+input[data-placeholder]:after {
+	color: #ddd;
+	font-size: 40px;
+	text-align: left;
+	margin-left: 0.6em;
+	padding-right: 10%;
+}
+
+input[type="date"]:required {
+	padding-left: 45px;
+}
+
+/* 테스트페이지 저장, 다시하기 버튼 */
+li a.button {
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+/* 테이블 스타일 수정 */
+
+.survey-question {
+	font-size: 25px;
+}
+
+.survey-question td {
+	text-align: left;
+	/* 텍스트를 왼쪽에 배열 */
+	padding-top: 1em;
+}
+
+input[type="radio"]+label {
+	font-size: 23px;
+	/* 원하는 폰트 크기로 조절 */
+	/* 추가적인 스타일 속성들 */
+}
+
+
+/* 그래프 결과 내용 */
+.result-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.chart-container {
+	/* 그래프 컨테이너의 스타일 */
+	margin-right: 180px; /* 그래프와 텍스트 간의 간격 조절 */
+}
+
+/* 테스트 진단 이미지 */
+.result-text {
+	font-size: 35px;
+	/* 결과 텍스트의 스타일 */
+	/* border: 1px solid #ccc; */
+	margin-right: 100px;
+	width: 20em;
+	height: 15em;
+	display: flex;
+	align-items: center; /* 수직 정렬을 위해 center로 설정 */
+	justify-content: center; /* 수평 정렬을 위해 center로 설정 */
+}
+
+.result-text h2 {
+	margin-bottom: 0.01em;
+}
+
+/* 테스트 결과 그래프 */
+.result-text2 {
+	font-size: 35px;
+	/* 결과 텍스트의 스타일 */
+	/* border: 1px solid #2f49de; */
+	margin-left: 50px;
+	margin-right: 50px;
+	width: 20em;
+	height: 15em;
+	display: flex; /* 텍스트 컨테이너에 flex 적용 */
+    align-items: center; /* 수직 정렬을 위해 center로 설정 */
+	justify-content: center; /* 수평 정렬을 위해 center로 설정 */
+}
+
+.result-text2 h2 {
+	margin-bottom: 0.01em;
+}
+
+.result-text a {
+    border-bottom: none !important; /* 점선 삭제 */
+}
+
+/* 테스트 폼 여백 */
+.main.special main.spotlight2 {
+    margin-bottom: 100px; /* 전체 여백 크기 조정 가능 */
+}
+
+.main.special main.spotlight2 header.major h2.turtle {
+    margin-top: 100px; /* 맨 첫번째 여백 크기 조정 가능 */
+}
+
+.profilePicture {
+	display: flex;
 }
