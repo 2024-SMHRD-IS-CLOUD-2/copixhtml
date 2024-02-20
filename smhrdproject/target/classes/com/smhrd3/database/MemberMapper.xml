@@ -3,26 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <!-- 
-  mapper namespace란?
-  mapper 파일이 여러개일 때, 해당하는 파일을 식별할 수 있는 식별자
-  이름을 정해줄 때, 해당 mapper파일과 연결이 되는 DAO 클래스 이름을
-  일치시켜주는것을 원칙으로 함
-  	    -->
+
 <mapper namespace="com.smhrd3.model.DAO">
-<!-- mapper 태그 안쪽에 SQL 구문을 기술 -->
-<!-- id : DAO에서 sqlSession을 사용해 Mapper파일 안쪽에 있는 SQL구문을 찾아 줄때 사용하는 값
-		  중복 허용하지 않는다. -->
-<!-- parameterType : 매개변수로 받아올 타입 -->
+
+<!-- 로그인 -->
 <select id="signin" parameterType="com.smhrd3.model.MemberDTO" resultType="com.smhrd3.model.MemberDTO">
-SELECT MB_EMAIL,MB_PW FROM MEMBERS WHERE MB_EMAIL=#{email}, MB_PW=#{pw}
+SELECT MB_ID,MB_EMAIL,MB_PROFILE FROM MEMBERS WHERE MB_PW=#{mb_Pw} AND MB_EMAIL=#{mb_Email}
 </select>
+<!-- 회원가입 -->
 <insert id="signup" parameterType="com.smhrd3.model.MemberDTO">
-INSERT INTO MEMBERS(MB_EMAIL,MB_PW,MB_NICK,MB_GENDER,MB_BIRTHDATE)
-VALUES(#{email},#{pw},#{nickname},#{gender},#{birth}) 
+INSERT INTO MEMBERS(MB_ID,MB_EMAIL,MB_PW,MB_NICK,MB_GENDER,MB_BIRTHDATE)
+VALUES(MEMBERS_SEQ.NEXTVAL,#{mb_Email},#{mb_Pw},#{mb_Nickname},#{mb_Gender},#{mb_Birth}) 
 </insert>
+<!-- 회원정보 수정 -->
 <update id="update" parameterType="com.smhrd3.model.MemberDTO">
-UPDATE MEMBERS SET MB_PW=#{pwcheck} WHERE MB_PW=#{pw}, MB_EMAIL=#{email}
+UPDATE MEMBERS SET MB_PW=#{mb_Pwcheck} WHERE MB_PW=#{mb_Pw} AND MB_EMAIL=#{mb_Email} AND MB_NICKNAME=#{mb_Nickname}
+</update>
+<!-- 프로필사진 변경 -->
+<update id="updateProfile" parameterType="com.smhrd3.model.MemberDTO">
+UPDATE MEMBERS SET MB_PROFILE=#{mb_Profile} WHERE MB_EMAIL=#{mb_Email}
 </update>
 
 </mapper>

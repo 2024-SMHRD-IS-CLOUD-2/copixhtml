@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.smhrd3.model.DAO;
 import com.smhrd3.model.MemberDTO;
 
-@WebServlet("/Login")
+@WebServlet("/signIn")
 public class signIn extends HttpServlet {
 	private static final long serialVersionUID = 1L; 
 
@@ -22,18 +22,19 @@ public class signIn extends HttpServlet {
 	String email = request.getParameter("email");
 	String pw = request.getParameter("pw");
 	MemberDTO dto = new MemberDTO();
-	dto.setEmail(email);
-	dto.setPw(pw);
+	dto.setMb_Email(email);
+	dto.setMb_Pw(pw);
 	DAO dao = new DAO();
-	MemberDTO result = dao.login(dto);
+	MemberDTO result = dao.signIn(dto);
+	System.out.println(dto);
 	if(result != null) {
 		HttpSession session = request.getSession();
 		session.setAttribute("result",result);
+		response.sendRedirect("index_main.jsp");
 	}
-	response.sendRedirect("index.jsp");
-	
-	
-	
+	else {
+		response.sendRedirect("index_login.jsp");
+	}
 	}
 
 }

@@ -25,21 +25,21 @@ public class signUp extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String brith = request.getParameter("birth");
 		MemberDTO dto = new MemberDTO();
-		dto.setEmail(email);
-		dto.setPw(pw);
-		dto.setNickname(nickname);
-		dto.setGender(gender);
-		dto.setBirth(brith);
+		dto.setMb_Email(email);
+		dto.setMb_Pw(pw);
+		dto.setMb_Nickname(nickname);
+		dto.setMb_Gender(gender);
+		dto.setMb_Birth(brith);
 		DAO dao = new DAO();
 		int row = dao.signUp(dto);
 		if(row>0) {
 			request.setAttribute("member", dto);
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("index_login.jsp");
 			rd.forward(request, response);
 			
 		}
 		else {
-			response.sendRedirect("sign.jsp");
+			response.sendRedirect("index_signup.jsp");
 		}
 	}
 

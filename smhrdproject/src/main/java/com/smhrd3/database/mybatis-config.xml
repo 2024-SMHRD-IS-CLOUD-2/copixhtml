@@ -37,6 +37,7 @@
   <mappers>
   <!-- mapper파일 만들고 꼭 수정하기! -->
     <mapper resource="com/smhrd3/database/MemberMapper.xml"/>
+    <mapper resource="com/smhrd3/postdatabase/postMapper.xml"/>
   </mappers>
   
   

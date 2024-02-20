@@ -13,7 +13,7 @@ public class DAO {
 	SqlSessionFactory factory = SqlSessionManager.getFactory();
 
 	// 로그인 메소드
-	public MemberDTO login(MemberDTO dto) {
+	public MemberDTO signIn(MemberDTO dto) {
 		SqlSession sqlSession = factory.openSession();
 		MemberDTO result = sqlSession.selectOne("signin",dto);
 		sqlSession.close();
@@ -28,13 +28,22 @@ public class DAO {
 		return row;
 		
 	}
-
+	// 회원정보 수정 메소드
 	public int update(MemberDTO dto) {
-				SqlSession sqlSession = factory.openSession(true);
-				int row = sqlSession.update("update", dto);
-				sqlSession.close();
-				return row;
+		SqlSession sqlSession = factory.openSession(true);
+		int row = sqlSession.update("update", dto);
+		sqlSession.close();
+		return row;
 	}
+	// 프로필 사진 변경 메소드
+	public int profileUpdate(MemberDTO dto) {
+		SqlSession sqlSession = factory.openSession(true);
+		int row =sqlSession.update("updateProfile", dto);
+		sqlSession.close();
+		return row;
+	}
+
+	
 	
 
 }

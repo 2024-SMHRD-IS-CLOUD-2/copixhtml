@@ -20,22 +20,26 @@ public class update extends HttpServlet {
 				request.setCharacterEncoding("utf-8");
 				String pw = request.getParameter("pw");
 				String email = request.getParameter("email");
+				String nickname = request.getParameter("nickname");
 				String pwcheck = request.getParameter("pwcheck");
 				HttpSession session = request.getSession();
 				MemberDTO dto = new MemberDTO();
-				dto.setEmail(email);
-				dto.setPw(pw);
-				dto.setPwcheck(pwcheck);
+				dto.setMb_Email(email);
+				dto.setMb_Pw(pw);
+				dto.setMb_Nickname(nickname);
+				dto.setMb_Pwcheck(pwcheck);
 				DAO dao = new DAO();
 				int row = dao.update(dto);
 				if(row>0) {
 					session.setAttribute("result", dto);
-					response.sendRedirect("index.jsp");
+					response.sendRedirect("index_mypage.jsp");
 				}
 				else {
-					response.sendRedirect("index.jsp");
+					response.sendRedirect("index_mypage.jsp");
 				}
 		
+				
+				
 	}
 
 }
